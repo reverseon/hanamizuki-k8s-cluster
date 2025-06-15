@@ -1,9 +1,6 @@
 global:
   domain: argocd.mizuki.ishiori.net
 
-redis-ha:
-  enabled: true
-
 controller:
   replicas: 1
 
