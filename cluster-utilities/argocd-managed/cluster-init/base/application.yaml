@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cluster-app
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cluster-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
