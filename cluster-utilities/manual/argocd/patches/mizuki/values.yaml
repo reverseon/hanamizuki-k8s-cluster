@@ -1,5 +1,5 @@
 global:
-  domain: argocd.mizuki.ishiori.net
+  domain: argocd.mizuki.otaprv.ishiori.net
 
 controller:
   replicas: 1
