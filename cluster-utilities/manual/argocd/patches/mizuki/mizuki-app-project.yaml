@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: mizuki-app-project
+  namespace: argocd
+spec:
+  sourceRepos:
+  - 'https://github.com/reverseon/hanamizuki-k8s-cluster'
+  sourceNamespaces:
+  - '*'
+  destinations:
+  - namespace: 'ns-*'
+    server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'

@@ -5,3 +5,4 @@ resources:
 - ../../base
 - helm-argocd.yaml
 - ingress.yaml
+- mizuki-app-project.yaml
