@@ -16,3 +16,7 @@ repoServer:
 
 applicationSet:
   replicas: 2
+
+configs:
+  cm:
+    exec.enabled: true
