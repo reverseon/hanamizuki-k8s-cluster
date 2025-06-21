@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: namespace-generator
+  name: cluster-namespace-generator
   namespace: argocd
 spec:
   generators:
@@ -10,4 +10,4 @@ spec:
       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
       revision: main
       files:
-      - path: "cluster-utilities/argocd-managed/namespaces/sealed-secret.yaml"
+      - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"

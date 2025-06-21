@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: namespace-generator
+  name: cluster-namespace-generator
   namespace: argocd
 spec:
   generators:
@@ -11,13 +11,15 @@ spec:
       revision: main
   template:
     metadata:
-      name: 'ns-{{path.basename}}'
+      name: 'ns-{{path.filename}}'
     spec:
       project: mizuki-cluster-namespace-project
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
-        path: cluster-utilities/argocd-managed/namespaces/{{path.filename}}
+        path: cluster-utilities/argocd-managed/namespaces
+        directory:
+          include: "{{path.filename}}"
       destination:
         server: https://kubernetes.default.svc
         namespace: cluster-app # not managed by argocd
