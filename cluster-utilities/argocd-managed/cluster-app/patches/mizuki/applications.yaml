@@ -29,10 +29,10 @@ spec:
       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
       revision: main
       files:
-      - path: "cluster-utilities/argocd-managed/workload/cert-manager"
+      - path: "cluster-utilities/argocd-managed/workloads/cert-manager"
   template:
     spec:
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
-        path: "cluster-utilities/argocd-managed/workload/{{path.basename}}/patces/mizuki"
+        path: "cluster-utilities/argocd-managed/workloads/{{path.basename}}/patches/mizuki"
