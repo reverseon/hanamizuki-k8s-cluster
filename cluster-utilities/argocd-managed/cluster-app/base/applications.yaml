@@ -17,10 +17,7 @@ spec:
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
-        path: cluster-utilities/argocd-managed/namespaces
-        kustomize:
-          resources:
-          - '{{path.filename}}'
+        path: cluster-utilities/argocd-managed/namespaces/{{path.filename}}
       destination:
         server: https://kubernetes.default.svc
         namespace: cluster-app # not managed by argocd
