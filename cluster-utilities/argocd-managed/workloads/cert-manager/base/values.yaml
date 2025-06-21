@@ -1,1 +1,15 @@
 installCRDs: true
+
+# Use cert-manager namespace for leader election instead of kube-system
+# This avoids RBAC issues with ArgoCD not having permission to create resources in kube-system
+global:
+  leaderElection:
+    namespace: cert-manager
+
+extraArgs:
+  - --leader-election-namespace=cert-manager
+
+# Set leader election namespace to cert-manager for all components
+cainjector:
+  extraArgs:
+    - --leader-election-namespace=cert-manager
