@@ -5,8 +5,16 @@ resources:
 - ../../base
 - helm-argocd.yaml
 - ingress.yaml
-- argocd-cmd-params-cm.yaml
 - mizuki-cluster-app-project.yaml
 - mizuki-cluster-namespace-project.yaml
 - mizuki-app-project.yaml
 - mizuki-namespace-project.yaml
+
+patches:
+- target:
+    kind: ConfigMap
+    name: argocd-cmd-params-cm
+  patch: |-
+    - op: replace
+      path: /data/server.insecure
+      value: "true"
