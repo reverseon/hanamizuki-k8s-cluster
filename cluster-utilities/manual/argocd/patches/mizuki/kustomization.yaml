@@ -4,7 +4,6 @@ namespace: argocd
 resources:
 - ../../base
 - helm-argocd.yaml
-- ingress.yaml
 - mizuki-cluster-app-project.yaml
 - mizuki-cluster-namespace-project.yaml
 - mizuki-app-project.yaml
