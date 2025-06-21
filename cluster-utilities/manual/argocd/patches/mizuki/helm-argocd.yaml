@@ -194,7 +194,7 @@ data:
   server.disable.auth: "false"
   server.enable.gzip: "true"
   server.enable.proxy.extension: "false"
-  server.insecure: "false"
+  server.insecure: "true"
   server.log.format: text
   server.log.level: info
   server.repo.server.strict.tls: "false"
@@ -23152,7 +23152,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 409b525fdbbb0880a1c6407e42991a4e027bbbfffca608870217568799140fb7
+        checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-applicationset-controller
@@ -23531,7 +23531,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 409b525fdbbb0880a1c6407e42991a4e027bbbfffca608870217568799140fb7
+        checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
         checksum/cm: c05b142a426fb1e9c5cd877a897b1694df9991e4b1bfeae9e97acea20ad69780
       labels:
         helm.sh/chart: argo-cd-7.7.23
@@ -23907,7 +23907,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 409b525fdbbb0880a1c6407e42991a4e027bbbfffca608870217568799140fb7
+        checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
         checksum/cm: c05b142a426fb1e9c5cd877a897b1694df9991e4b1bfeae9e97acea20ad69780
       labels:
         helm.sh/chart: argo-cd-7.7.23
@@ -24350,7 +24350,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 409b525fdbbb0880a1c6407e42991a4e027bbbfffca608870217568799140fb7
+        checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-dex-server
@@ -24653,7 +24653,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 409b525fdbbb0880a1c6407e42991a4e027bbbfffca608870217568799140fb7
+        checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
         checksum/cm: c05b142a426fb1e9c5cd877a897b1694df9991e4b1bfeae9e97acea20ad69780
       labels:
         helm.sh/chart: argo-cd-7.7.23
@@ -24964,6 +24964,75 @@ spec:
           - key: controller.profile.enabled
             path: profiler.enabled
       dnsPolicy: ClusterFirst
+---
+# Source: argo-cd/templates/argocd-server/ingress-grpc.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-grpc
+  namespace: argocd
+  labels:
+    helm.sh/chart: argo-cd-7.7.23
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/instance: argocd
+    app.kubernetes.io/component: server
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: argocd
+    app.kubernetes.io/version: "v2.13.4"
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: grpc.argocd.mizuki.otaprv.ishiori.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 443
+  tls:
+    - hosts:
+      - grpc.argocd.mizuki.otaprv.ishiori.net
+      secretName: grpc-argocd-mizuki-otaprv-ishiori-net-tls-secret
+---
+# Source: argo-cd/templates/argocd-server/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server
+  namespace: argocd
+  labels:
+    helm.sh/chart: argo-cd-7.7.23
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/instance: argocd
+    app.kubernetes.io/component: server
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: argocd
+    app.kubernetes.io/version: "v2.13.4"
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: argocd.mizuki.otaprv.ishiori.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
+  tls:
+    - hosts:
+      - argocd.mizuki.otaprv.ishiori.net
+      secretName: wild-mizuki-otaprv-ishiori-net-tls-secret
 ---
 # Source: argo-cd/templates/redis-secret-init/serviceaccount.yaml
 apiVersion: v1
