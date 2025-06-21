@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: mizuki-app-project
+  name: mizuki-cluster-app-project
   namespace: argocd
 spec:
   sourceRepos:

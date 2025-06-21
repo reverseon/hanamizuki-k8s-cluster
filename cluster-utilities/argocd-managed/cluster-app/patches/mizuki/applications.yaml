@@ -1,0 +1,11 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: namespace-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      files:
+      - path: "cluster-utilities/argocd-managed/namespaces/sealed-secret.yaml"

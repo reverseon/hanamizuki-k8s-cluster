@@ -4,6 +4,7 @@ metadata:
   name: cluster-app
   namespace: argocd
 spec:
+  project: mizuki-cluster-app-project
   source:
     path: cluster-utilities/argocd-managed/cluster-app/patches/mizuki
   syncPolicy:

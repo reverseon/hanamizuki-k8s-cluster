@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wild-mizuki-otaprv-ishiori-net-cert
+  namespace: cert-manager
+spec:
+  secretName: wild-mizuki-otaprv-ishiori-net-tls-secret
+  issuerRef:
+    name: letsencrypt-dns01-issuer
+    kind: ClusterIssuer
+  commonName: "*.mizuki.otaprv.ishiori.net"
+  dnsNames:
+  - "*.mizuki.otaprv.ishiori.net"
+  - "mizuki.otaprv.ishiori.net"
