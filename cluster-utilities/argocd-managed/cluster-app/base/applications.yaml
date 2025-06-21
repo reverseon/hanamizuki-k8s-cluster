@@ -11,15 +11,13 @@ spec:
       revision: main
   template:
     metadata:
-      name: 'ns-{{path.filename}}'
+      name: 'ns-{{path.basename}}'
     spec:
       project: mizuki-cluster-namespace-project
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
-        path: cluster-utilities/argocd-managed/namespaces
-        directory:
-          include: "{{path.filename}}"
+        path: {{ path.path }}
       destination:
         server: https://kubernetes.default.svc
         namespace: cluster-app # not managed by argocd
