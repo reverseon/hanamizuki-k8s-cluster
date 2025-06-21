@@ -27,3 +27,29 @@ spec:
           selfHeal: true
         syncOptions:
         - ServerSideApply=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-app-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: mizuki-cluster-app-project
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

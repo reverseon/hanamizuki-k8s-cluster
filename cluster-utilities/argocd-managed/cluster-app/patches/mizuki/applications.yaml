@@ -10,4 +10,23 @@ spec:
       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
       revision: main
       files:
-      - path: "cluster-utilities/argocd-managed/namespaces/cert-manager/namespace.yaml"
+      - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-app-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+      files:
+      - path: "cluster-utilities/argocd-managed/workload/cert-manager"
+  template:
+    spec:
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+        path: "cluster-utilities/argocd-managed/workload/{{path.basename}}/patces/mizuki"
