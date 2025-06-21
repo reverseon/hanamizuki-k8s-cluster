@@ -10,4 +10,4 @@ spec:
       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
       revision: main
       files:
-      - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"
+      - path: "cluster-utilities/argocd-managed/namespaces/cert-manager/namespace.yaml"
