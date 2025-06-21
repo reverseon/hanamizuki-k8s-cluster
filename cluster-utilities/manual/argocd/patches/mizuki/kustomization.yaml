@@ -5,6 +5,7 @@ resources:
 - ../../base
 - helm-argocd.yaml
 - ingress.yaml
+- argocd-cmd-params-cm.yaml
 - mizuki-cluster-app-project.yaml
 - mizuki-cluster-namespace-project.yaml
 - mizuki-app-project.yaml

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grpc-argocd-mizuki-otaprv-ishiori-net-cert
+  namespace: cert-manager
+spec:
+  secretName: grpc-argocd-mizuki-otaprv-ishiori-net-tls-secret
+  issuerRef:
+    name: letsencrypt-dns01-issuer
+    kind: ClusterIssuer
+  commonName: "grpc.argocd.mizuki.otaprv.ishiori.net"
+  dnsNames:
+  - "grpc.argocd.mizuki.otaprv.ishiori.net"
