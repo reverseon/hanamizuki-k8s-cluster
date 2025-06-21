@@ -9,7 +9,7 @@ spec:
   - git:
       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
       revision: main
-      files:
+      directories:
       - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"
   template:
     spec:
@@ -28,7 +28,7 @@ spec:
   - git:
       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
       revision: main
-      files:
+      directories:
       - path: "cluster-utilities/argocd-managed/workloads/cert-manager"
   template:
     spec:
