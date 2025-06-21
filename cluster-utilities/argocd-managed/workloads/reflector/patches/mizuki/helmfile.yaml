@@ -1,0 +1,12 @@
+repositories:
+- name: emberstack
+  url: https://emberstack.github.io/helm-charts
+
+releases:
+- name: reflector
+  namespace: reflector
+  chart: emberstack/reflector
+  version: 9.1.11
+  values:
+  - ../../base/values.yaml
+  - values.yaml 

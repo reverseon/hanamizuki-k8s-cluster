@@ -11,6 +11,7 @@ spec:
       revision: main
       directories:
       - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"
+      - path: "cluster-utilities/argocd-managed/namespaces/reflector"
   template:
     spec:
       source:
@@ -30,6 +31,7 @@ spec:
       revision: main
       directories:
       - path: "cluster-utilities/argocd-managed/workloads/cert-manager"
+      - path: "cluster-utilities/argocd-managed/workloads/reflector"
   template:
     spec:
       source:

@@ -1,0 +1,19 @@
+# Reflector values
+# https://github.com/emberstack/kubernetes-reflector
+
+# Resource configuration
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+# RBAC
+rbac:
+  enabled: true
+
+# Service Account
+serviceAccount:
+  create: true
