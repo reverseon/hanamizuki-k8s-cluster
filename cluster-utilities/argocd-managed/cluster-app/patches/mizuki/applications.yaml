@@ -11,6 +11,12 @@ spec:
       revision: main
       files:
       - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"
+  template:
+    spec:
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+        path: "cluster-utilities/argocd-managed/namespaces/{{path.basename}}/patches/mizuki"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
