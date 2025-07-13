@@ -18,6 +18,8 @@ spec:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
         path: "cluster-utilities/argocd-managed/namespaces/{{path.basename}}/patches/mizuki"
+      destination:
+        namespace: mizuki-cluster-app # not managed by ArgoCD
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -38,3 +40,5 @@ spec:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
         path: "cluster-utilities/argocd-managed/workloads/{{path.basename}}/patches/mizuki"
+      destination:
+        namespace: mizuki-cluster-app # not managed by ArgoCD

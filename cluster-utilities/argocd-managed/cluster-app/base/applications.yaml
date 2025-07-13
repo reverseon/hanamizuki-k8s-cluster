@@ -20,7 +20,6 @@ spec:
         path: "cluster-utilities/argocd-managed/namespaces/{{path.basename}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: cluster-app # not managed by argocd
       syncPolicy:
         automated:
           prune: true
