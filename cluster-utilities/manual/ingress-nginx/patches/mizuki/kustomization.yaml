@@ -4,3 +4,4 @@ namespace: ingress-nginx
 resources:
 - ../../base
 - helm-ingress-nginx.yaml
+- application.yaml
