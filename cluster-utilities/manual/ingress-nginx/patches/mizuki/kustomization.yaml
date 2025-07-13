@@ -1,8 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: ingress-nginx
 resources:
 - ../../base
 - helm-ingress-nginx.yaml
 patchesStrategicMerge:
 - application.yaml
+patches:
+- target:
+    kind: "!(Application)"
+  patch: |-
+    - op: replace
+      path: /metadata/namespace
+      value: ingress-nginx
