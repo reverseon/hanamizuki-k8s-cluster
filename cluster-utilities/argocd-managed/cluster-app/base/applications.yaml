@@ -13,7 +13,6 @@ spec:
     metadata:
       name: 'ns-{{path.basename}}'
     spec:
-      project: mizuki-cluster-namespace-project
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
@@ -47,7 +46,6 @@ spec:
     metadata:
       name: '{{path.basename}}'
     spec:
-      project: mizuki-cluster-app-project
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main

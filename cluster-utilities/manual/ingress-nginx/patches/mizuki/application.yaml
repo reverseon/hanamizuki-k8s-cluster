@@ -5,5 +5,6 @@ metadata:
   name: ingress-nginx
   namespace: argocd
 spec:
+  project: mizuki-cluster-app-project
   source:
     path: cluster-utilities/manual/ingress-nginx/patches/mizuki

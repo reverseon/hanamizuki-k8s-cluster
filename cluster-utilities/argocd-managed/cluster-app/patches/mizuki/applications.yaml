@@ -14,6 +14,7 @@ spec:
       - path: "cluster-utilities/argocd-managed/namespaces/reflector"
   template:
     spec:
+      project: mizuki-cluster-namespace-project
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
@@ -36,6 +37,7 @@ spec:
       - path: "cluster-utilities/argocd-managed/workloads/reflector"
   template:
     spec:
+      project: mizuki-cluster-app-project
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
