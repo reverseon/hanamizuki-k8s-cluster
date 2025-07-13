@@ -4,4 +4,5 @@ namespace: ingress-nginx
 resources:
 - ../../base
 - helm-ingress-nginx.yaml
+patchesStrategicMerge:
 - application.yaml
