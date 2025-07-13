@@ -3,7 +3,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: ingress-nginx
-  namespace: argocd
 spec:
   source:
     repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
@@ -11,7 +10,7 @@ spec:
     path: cluster-utilities/manual/ingress-nginx/base
   destination:
     server: https://kubernetes.default.svc
-    namespace: ingress-nginx
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
