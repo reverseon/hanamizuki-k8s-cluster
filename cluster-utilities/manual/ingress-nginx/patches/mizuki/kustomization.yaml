@@ -5,10 +5,3 @@ resources:
 - helm-ingress-nginx.yaml
 patchesStrategicMerge:
 - application.yaml
-patches:
-- target:
-    kind: "!(Application)"
-  patch: |-
-    - op: replace
-      path: /metadata/namespace
-      value: ingress-nginx
