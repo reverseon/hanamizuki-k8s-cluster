@@ -45,7 +45,7 @@ configs:
     policy.default: role:readonly
     policy.csv: |
       g, ishiori-net:netwide-admin, role:administrator
-      g, ishiori-net:mizuki-admin, role:administrator
+      g, ishiori-net:mizuki-maintainer, role:administrator
       g, ishiori-net:mizuki-developer, role:developer
       p, role:administrator, *, *, *, allow
       p, role:developer, applications, get, *, allow
