@@ -152,7 +152,7 @@ data:
         id: github
         name: GitHub
         config:
-          clientID: Iv23liU2464pJwXcyVKy
+          clientID: Ov23lioR2VJxShXekUJk
           clientSecret: $github-client-secret:clientSecret
           orgs:
           - name: ishiori-net
@@ -23556,7 +23556,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: 3aaaeedbd8c6007036911d725437ebe179f0cc18c9e77407f3ed47dfceace6dc
+        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-repo-server
@@ -23932,7 +23932,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: 3aaaeedbd8c6007036911d725437ebe179f0cc18c9e77407f3ed47dfceace6dc
+        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-server
@@ -24375,7 +24375,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: 3aaaeedbd8c6007036911d725437ebe179f0cc18c9e77407f3ed47dfceace6dc
+        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-dex-server
@@ -24679,7 +24679,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: 3aaaeedbd8c6007036911d725437ebe179f0cc18c9e77407f3ed47dfceace6dc
+        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-application-controller

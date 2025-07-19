@@ -61,7 +61,7 @@ configs:
           id: github
           name: GitHub
           config:
-            clientID: Iv23liU2464pJwXcyVKy
+            clientID: Ov23lioR2VJxShXekUJk
             clientSecret: $github-client-secret:clientSecret
             orgs:
             - name: ishiori-net
