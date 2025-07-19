@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mizuki-cluster-utilities
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mizuki-cluster-utilities
+  namespace: argocd
+spec:
+  destination:
+    namespace: mizuki-cluster-utilities
+    server: https://kubernetes.default.svc
+  project: mizuki-cluster-utilities-project
+  source:
+    path: cluster-utilities/cluster-init/patches/mizuki
+    repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - ServerSideApply=true

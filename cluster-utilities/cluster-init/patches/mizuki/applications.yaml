@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-namespace-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+      directories:
+      - path: "cluster-utilities/argocd-managed/namespaces/cert-manager"
+      - path: "cluster-utilities/argocd-managed/namespaces/reflector"
+  template:
+    spec:
+      project: mizuki-cluster-namespace-project
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+        path: "cluster-utilities/argocd-managed/namespaces/{{path.basename}}/patches/mizuki"
+      destination:
+        namespace: mizuki-cluster-app # not managed by ArgoCD
