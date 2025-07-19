@@ -54,6 +54,7 @@ configs:
       p, role:developer, exec, create, *, allow
       p, role:developer, clusters, get, *, allow
   cm:
+    admin.enabled: false
     exec.enabled: true
     dex.config: |
       connectors:
