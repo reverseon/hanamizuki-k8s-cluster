@@ -12,6 +12,9 @@ spec:
       directories:
       - path: "cluster-utilities/cert-manager"
       - path: "cluster-utilities/reflector"
+      - path: "cluster-utilities/ingress-nginx"
+      - path: "cluster-utilities/metallb"
+      - path: "cluster-utilities/sealed-secrets
   template:
     spec:
       project: mizuki-cluster-utilities-project
