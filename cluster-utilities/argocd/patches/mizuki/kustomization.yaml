@@ -4,6 +4,7 @@ namespace: argocd
 resources:
 - ../../base
 - helm-argocd.yaml
+- github-client-secret.yaml
 - mizuki-cluster-utilities-project.yaml
 - mizuki-app-project.yaml
 - mizuki-namespace-project.yaml

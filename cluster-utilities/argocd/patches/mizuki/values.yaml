@@ -42,3 +42,18 @@ configs:
     server.insecure: "true"
   cm:
     exec.enabled: true
+    dex.config: |
+      connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: Iv23liU2464pJwXcyVKy
+            clientSecret: $github-client-secret:clientSecret
+            orgs:
+            - name: ishiori-net
+              teams:
+              - netwide-admin
+              - mizuki-admin
+              - mizuki-developer
+            teamNameField: slug
