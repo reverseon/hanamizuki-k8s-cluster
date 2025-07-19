@@ -40,6 +40,19 @@ applicationSet:
 configs:
   params:
     server.insecure: "true"
+  rbac:
+    create: true
+    policy.default: role:readonly
+    policy.csv: |
+      g, ishiori-net:netwide-admin, role:administrator
+      g, ishiori-net:mizuki-admin, role:administrator
+      g, ishiori-net:mizuki-developer, role:developer
+      p, role:administrator, *, *, *, allow
+      p, role:developer, applications, get, *, allow
+      p, role:developer, applications, sync, *, allow
+      p, role:developer, applications, action/*, *, allow
+      p, role:developer, exec, create, *, allow
+      p, role:developer, clusters, get, *, allow
   cm:
     exec.enabled: true
     dex.config: |

@@ -264,8 +264,17 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.13.4"
 data:
-  policy.csv: ""
-  policy.default: ""
+  policy.csv: |
+    g, ishiori-net:netwide-admin, role:administrator
+    g, ishiori-net:mizuki-admin, role:administrator
+    g, ishiori-net:mizuki-developer, role:developer
+    p, role:administrator, *, *, *, allow
+    p, role:developer, applications, get, *, allow
+    p, role:developer, applications, sync, *, allow
+    p, role:developer, applications, action/*, *, allow
+    p, role:developer, exec, create, *, allow
+    p, role:developer, clusters, get, *, allow
+  policy.default: role:readonly
   policy.matchMode: glob
   scopes: '[groups]'
 ---
