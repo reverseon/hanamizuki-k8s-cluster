@@ -67,6 +67,6 @@ configs:
             - name: ishiori-net
               teams:
               - netwide-admin
-              - mizuki-admin
+              - mizuki-maintainer
               - mizuki-developer
             teamNameField: slug

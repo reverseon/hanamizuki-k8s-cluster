@@ -158,7 +158,7 @@ data:
           - name: ishiori-net
             teams:
             - netwide-admin
-            - mizuki-admin
+            - mizuki-maintainer
             - mizuki-developer
           teamNameField: slug
   exec.enabled: "true"
@@ -23556,7 +23556,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
+        checksum/cm: c9b88632680308a4ff8fa1ee8d086b973b495d6fcb94b6440d96f0bb73a58cca
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-repo-server
@@ -23932,7 +23932,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
+        checksum/cm: c9b88632680308a4ff8fa1ee8d086b973b495d6fcb94b6440d96f0bb73a58cca
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-server
@@ -24375,7 +24375,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
+        checksum/cm: c9b88632680308a4ff8fa1ee8d086b973b495d6fcb94b6440d96f0bb73a58cca
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-dex-server
@@ -24679,7 +24679,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: bfa38df027f2f4651ceba457e539df09c3087afc2161425de0123d53a64346b6
+        checksum/cm: c9b88632680308a4ff8fa1ee8d086b973b495d6fcb94b6440d96f0bb73a58cca
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-application-controller
