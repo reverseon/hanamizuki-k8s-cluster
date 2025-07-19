@@ -20,4 +20,4 @@ spec:
         targetRevision: main
         path: "cluster-utilities/argocd-managed/namespaces/{{path.basename}}/patches/mizuki"
       destination:
-        namespace: mizuki-cluster-app # not managed by ArgoCD
+        namespace: mizuki-cluster-utilities # not managed by ArgoCD
