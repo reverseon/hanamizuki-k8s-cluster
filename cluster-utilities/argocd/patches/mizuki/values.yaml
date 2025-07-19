@@ -24,6 +24,7 @@ server:
     extraTls:
       - hosts:
         - grpc.argocd.mizuki.otaprv.ishiori.net
+        secretName: grpc-argocd-mizuki-otaprv-ishiori-net-tls-secret
   autoscaling:
     enabled: true
     minReplicas: 2

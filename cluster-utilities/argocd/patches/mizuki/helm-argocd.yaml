@@ -24998,6 +24998,7 @@ spec:
   tls:
     - hosts:
       - grpc.argocd.mizuki.otaprv.ishiori.net
+      secretName: grpc-argocd-mizuki-otaprv-ishiori-net-tls-secret
 ---
 # Source: argo-cd/templates/argocd-server/ingress.yaml
 apiVersion: networking.k8s.io/v1
