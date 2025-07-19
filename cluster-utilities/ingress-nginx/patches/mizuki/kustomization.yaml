@@ -3,5 +3,3 @@ kind: Kustomization
 resources:
 - ../../base
 - helm-ingress-nginx.yaml
-patchesStrategicMerge:
-- application.yaml
