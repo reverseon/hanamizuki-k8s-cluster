@@ -24980,6 +24980,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.13.4"
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-dns01-issuer"
     nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
 spec:
   ingressClassName: nginx
