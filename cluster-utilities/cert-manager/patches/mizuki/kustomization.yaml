@@ -7,4 +7,3 @@ resources:
 - cloudflare-api-token-secret.yaml
 - clusterissuer.yaml
 - certs/wild-mizuki-otaprv-ishiori-net.yaml
-- certs/grpc-argocd-mizuki-otaprv-ishiori-net.yaml

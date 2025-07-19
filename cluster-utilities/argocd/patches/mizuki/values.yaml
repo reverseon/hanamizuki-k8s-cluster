@@ -19,11 +19,11 @@ server:
     enabled: true
     ingressClassName: nginx
     annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-dns01-issuer
       nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
     extraTls:
       - hosts:
         - grpc.argocd.mizuki.otaprv.ishiori.net
-        secretName: grpc-argocd-mizuki-otaprv-ishiori-net-tls-secret
   autoscaling:
     enabled: true
     minReplicas: 2
