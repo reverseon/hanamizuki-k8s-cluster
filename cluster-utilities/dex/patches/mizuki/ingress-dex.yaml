@@ -12,10 +12,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - dex.argocd.mizuki.otaprv.ishiori.net
+        - dex.mizuki.otaprv.ishiori.net
       secretName: dex-tls-secret
   rules:
-    - host: dex.argocd.mizuki.otaprv.ishiori.net
+    - host: dex.mizuki.otaprv.ishiori.net
       http:
         paths:
           - path: /
