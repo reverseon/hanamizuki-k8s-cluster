@@ -4,6 +4,12 @@ config:
     type: kubernetes
     config:
       inCluster: true
+  staticClients:
+  - id: example-app
+    redirectURIs:
+    - 'http://localhost:5555/callback'
+    name: 'Example App'
+    secret: $dex-client-secret:exampleAppSecret
   connectors:
   - type: github
     id: github
