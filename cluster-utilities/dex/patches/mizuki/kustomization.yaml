@@ -5,3 +5,4 @@ resources:
 - ../../base
 - helm-dex.yaml 
 - github-client-secret.yaml
+- ingress-dex.yaml

@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dex-ingress
+  namespace: dex
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-dns01-issuer"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - dex.argocd.mizuki.otaprv.ishiori.net
+      secretName: dex-tls-secret
+  rules:
+    - host: dex.argocd.mizuki.otaprv.ishiori.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dex
+                port:
+                  number: 5556
