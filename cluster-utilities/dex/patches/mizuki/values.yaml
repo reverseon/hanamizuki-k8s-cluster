@@ -9,7 +9,7 @@ config:
     redirectURIs:
     - 'http://127.0.0.1:5555/callback'
     name: 'Example App'
-    secret: '549de88725f5a94eb7ac4c368c1f5f04'
+    secret: $EXAMPLE_APP_CLIENT_SECRET
   connectors:
   - type: github
     id: github
