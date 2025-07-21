@@ -5,11 +5,11 @@ config:
     config:
       inCluster: true
   staticClients:
-  - id: example-app
+  - id: dex
     redirectURIs:
-    - 'http://127.0.0.1:5555/callback'
-    name: 'Example App'
-    secretEnv: EXAMPLE_APP_CLIENT_SECRET
+    - 'http://127.0.0.1:5555/callback' # Local Development
+    name: 'Dex Authentication for Mizuki'
+    secretEnv: DEX_APP_CLIENT_SECRET
   connectors:
   - type: github
     id: github
@@ -33,8 +33,8 @@ envVars:
       secretKeyRef:
         name: github-client-secret
         key: clientSecret
-  - name: EXAMPLE_APP_CLIENT_SECRET
+  - name: DEX_APP_CLIENT_SECRET
     valueFrom:
       secretKeyRef:
         name: dex-client-secret
-        key: exampleAppSecret
+        key: dexAppSecret
