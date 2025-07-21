@@ -9,7 +9,7 @@ config:
     redirectURIs:
     - 'http://localhost:5555/callback'
     name: 'Example App'
-    secret: $dex-client-secret:exampleAppSecret
+    secret: $EXAMPLE_APP_CLIENT_SECRET
   connectors:
   - type: github
     id: github
@@ -33,3 +33,8 @@ envVars:
       secretKeyRef:
         name: github-client-secret
         key: clientSecret
+  - name: EXAMPLE_APP_CLIENT_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: dex-client-secret
+        key: exampleAppSecret
