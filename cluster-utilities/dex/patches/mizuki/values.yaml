@@ -1,0 +1,17 @@
+config:
+  connectors:
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: Ov23liilC9bcKy7smcTA
+      clientSecret: $github-client-secret:clientSecret
+      redirectURI: https://dex.mizuki.otaprv.ishiori.net/dex/callback
+      orgs:
+      - name: ishiori-net
+        teams:
+        - netwide-admin
+        - mizuki-maintainer
+        - mizuki-developer
+      teamNameField: slug
+      useLoginAsID: true

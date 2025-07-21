@@ -71,3 +71,4 @@ configs:
               - mizuki-maintainer
               - mizuki-developer
             teamNameField: slug
+            useLoginAsID: true

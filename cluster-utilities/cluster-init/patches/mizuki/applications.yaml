@@ -15,6 +15,7 @@ spec:
       - path: "cluster-utilities/ingress-nginx"
       - path: "cluster-utilities/metallb"
       - path: "cluster-utilities/sealed-secrets"
+      - path: "cluster-utilities/dex"
   template:
     spec:
       project: mizuki-cluster-utilities-project

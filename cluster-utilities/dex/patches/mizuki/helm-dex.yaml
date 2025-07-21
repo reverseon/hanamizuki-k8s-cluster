@@ -1,0 +1,207 @@
+---
+# Source: dex/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dex
+  namespace: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: dex/templates/secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dex
+  namespace: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+type: Opaque
+data:
+  config.yaml: "Y29ubmVjdG9yczoKLSBjb25maWc6CiAgICBjbGllbnRJRDogT3YyM2xpaWxDOWJjS3k3c21jVEEKICAgIGNsaWVudFNlY3JldDogJGdpdGh1Yi1jbGllbnQtc2VjcmV0OmNsaWVudFNlY3JldAogICAgb3JnczoKICAgIC0gbmFtZTogaXNoaW9yaS1uZXQKICAgICAgdGVhbXM6CiAgICAgIC0gbmV0d2lkZS1hZG1pbgogICAgICAtIG1penVraS1tYWludGFpbmVyCiAgICAgIC0gbWl6dWtpLWRldmVsb3BlcgogICAgcmVkaXJlY3RVUkk6IGh0dHBzOi8vZGV4Lm1penVraS5vdGFwcnYuaXNoaW9yaS5uZXQvZGV4L2NhbGxiYWNrCiAgICB0ZWFtTmFtZUZpZWxkOiBzbHVnCiAgICB1c2VMb2dpbkFzSUQ6IHRydWUKICBpZDogZ2l0aHViCiAgbmFtZTogR2l0SHViCiAgdHlwZTogZ2l0aHVi"
+---
+# Source: dex/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+rules:
+  - apiGroups: ["apiextensions.k8s.io"]
+    resources: ["customresourcedefinitions"]
+    verbs: ["list", "create"]
+---
+# Source: dex/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dex-cluster
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: dex
+subjects:
+- kind: ServiceAccount
+  namespace: dex
+  name: dex
+---
+# Source: dex/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: dex
+  namespace: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+rules:
+  - apiGroups: ["dex.coreos.com"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+# Source: dex/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dex
+  namespace: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  kind: Role
+  apiGroup: rbac.authorization.k8s.io
+  name: dex
+subjects:
+- kind: ServiceAccount
+  namespace: dex
+  name: dex
+---
+# Source: dex/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: dex
+  namespace: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 5556
+      targetPort: http
+      protocol: TCP
+      appProtocol: http
+    - name: telemetry
+      port: 5558
+      targetPort: telemetry
+      protocol: TCP
+      appProtocol: http
+  selector:
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+---
+# Source: dex/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dex
+  namespace: dex
+  labels:
+    helm.sh/chart: dex-0.23.0
+    app.kubernetes.io/name: dex
+    app.kubernetes.io/instance: dex
+    app.kubernetes.io/version: "2.42.0"
+    app.kubernetes.io/managed-by: Helm
+    
+  
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dex
+      app.kubernetes.io/instance: dex
+  template:
+    metadata:
+      annotations:
+      
+        checksum/config: 26fe3b5aff71e2c04f1e6252ffd61f95a0346a83c957893920b19597f26178d6
+      labels:
+        app.kubernetes.io/name: dex
+        app.kubernetes.io/instance: dex
+    spec:
+      serviceAccountName: dex
+      securityContext:
+        {}
+      containers:
+        - name: dex
+          securityContext:
+            {}
+          image: "ghcr.io/dexidp/dex:v2.42.0"
+          imagePullPolicy: IfNotPresent
+          args:
+            - dex
+            - serve
+            - --web-http-addr
+            - 0.0.0.0:5556
+            - --telemetry-addr
+            - 0.0.0.0:5558
+            - /etc/dex/config.yaml
+          env:
+          ports:
+            - name: http
+              containerPort: 5556
+              protocol: TCP
+            - name: telemetry
+              containerPort: 5558
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz/live
+              port: telemetry
+          readinessProbe:
+            httpGet:
+              path: /healthz/ready
+              port: telemetry
+          resources:
+            {}
+          volumeMounts:
+            - name: config
+              mountPath: /etc/dex
+              readOnly: true
+      volumes:
+        - name: config
+          secret:
+            secretName: dex
+
