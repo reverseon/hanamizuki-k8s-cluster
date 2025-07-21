@@ -16,7 +16,7 @@ config:
     name: GitHub
     config:
       clientID: Ov23liilC9bcKy7smcTA
-      clientSecret: $github-client-secret:clientSecret
+      clientSecret: $GITHUB_CLIENT_SECRET
       redirectURI: https://dex.mizuki.otaprv.ishiori.net/dex/callback
       orgs:
       - name: ishiori-net
@@ -26,3 +26,10 @@ config:
         - mizuki-developer
       teamNameField: slug
       useLoginAsID: true
+
+env:
+  - name: GITHUB_CLIENT_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: github-client-secret
+        key: clientSecret
