@@ -6,3 +6,4 @@ resources:
 - helm-dex.yaml 
 - github-client-secret.yaml
 - ingress-dex.yaml
+- dex-client-secret.yaml
