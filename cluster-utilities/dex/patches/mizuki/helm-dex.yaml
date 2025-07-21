@@ -179,8 +179,12 @@ spec:
             - 0.0.0.0:5558
             - /etc/dex/config.yaml
           env:
-            - name: 0
-              value: "map[name:GITHUB_CLIENT_SECRET valueFrom:map[secretKeyRef:map[key:clientSecret name:github-client-secret]]]"
+          envFrom:
+            - name: GITHUB_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: clientSecret
+                  name: github-client-secret
           ports:
             - name: http
               containerPort: 5556
