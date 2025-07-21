@@ -27,7 +27,7 @@ config:
       teamNameField: slug
       useLoginAsID: true
 
-envFrom:
+envVars:
   - name: GITHUB_CLIENT_SECRET
     valueFrom:
       secretKeyRef:

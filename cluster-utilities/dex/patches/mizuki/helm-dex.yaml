@@ -179,7 +179,6 @@ spec:
             - 0.0.0.0:5558
             - /etc/dex/config.yaml
           env:
-          envFrom:
             - name: GITHUB_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
