@@ -1,4 +1,9 @@
 config:
+  issuer: https://dex.mizuki.otaprv.ishiori.net/dex
+  storage:
+    type: kubernetes
+    config:
+      inCluster: true
   connectors:
   - type: github
     id: github

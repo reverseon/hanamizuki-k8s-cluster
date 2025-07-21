@@ -161,6 +161,7 @@ data:
             - mizuki-maintainer
             - mizuki-developer
           teamNameField: slug
+          useLoginAsID: true
   exec.enabled: "true"
   server.rbac.log.enforce.enable: "false"
   statusbadge.enabled: "false"
@@ -23556,7 +23557,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: a528019b9a67f434454e5ff7651569e923415b433e19d56fb514dc09afe8ccca
+        checksum/cm: 09c4cf4c1bc4ba16c7958aed75be758d687dab9ea63d4523083ec2a7f43b30e0
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-repo-server
@@ -23932,7 +23933,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: a528019b9a67f434454e5ff7651569e923415b433e19d56fb514dc09afe8ccca
+        checksum/cm: 09c4cf4c1bc4ba16c7958aed75be758d687dab9ea63d4523083ec2a7f43b30e0
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-server
@@ -24375,7 +24376,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: a528019b9a67f434454e5ff7651569e923415b433e19d56fb514dc09afe8ccca
+        checksum/cm: 09c4cf4c1bc4ba16c7958aed75be758d687dab9ea63d4523083ec2a7f43b30e0
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-dex-server
@@ -24679,7 +24680,7 @@ spec:
     metadata:
       annotations:
         checksum/cmd-params: f9596618d4fab7076259f2dbdab96075b5d66344b43d85b7d7a1364ce4008ade
-        checksum/cm: a528019b9a67f434454e5ff7651569e923415b433e19d56fb514dc09afe8ccca
+        checksum/cm: 09c4cf4c1bc4ba16c7958aed75be758d687dab9ea63d4523083ec2a7f43b30e0
       labels:
         helm.sh/chart: argo-cd-7.7.23
         app.kubernetes.io/name: argocd-application-controller
