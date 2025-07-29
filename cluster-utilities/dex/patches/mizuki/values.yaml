@@ -5,10 +5,10 @@ config:
     config:
       inCluster: true
   staticClients:
-  - id: dex
+  - id: dex-k8s-client
     redirectURIs:
-    - 'http://127.0.0.1:5555/callback' # Local Development
-    name: 'Dex Authentication for Mizuki'
+    - 'http://localhost:5555/apis/auth/callback' # Local Development
+    name: 'Dex Kubernetes Client'
     secretEnv: DEX_APP_CLIENT_SECRET
   connectors:
   - type: github
