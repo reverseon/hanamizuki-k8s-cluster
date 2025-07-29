@@ -16,6 +16,7 @@ spec:
       - path: "cluster-utilities/metallb"
       - path: "cluster-utilities/sealed-secrets"
       - path: "cluster-utilities/dex"
+      - path: "cluster-utilities/system-and-cluster-wide"
   template:
     spec:
       project: mizuki-cluster-utilities-project
