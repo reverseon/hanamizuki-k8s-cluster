@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - apiserver-ingress.yaml
+  - cluster-admin-bindings.yaml
