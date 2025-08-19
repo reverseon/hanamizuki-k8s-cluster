@@ -4,6 +4,8 @@ config:
     type: kubernetes
     config:
       inCluster: true
+  oauth2:
+    skipApprovalScreen: true
   staticClients:
   - id: dex-k8s-client
     redirectURIs:
