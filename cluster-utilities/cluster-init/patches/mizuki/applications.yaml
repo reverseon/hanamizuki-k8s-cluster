@@ -26,3 +26,47 @@ spec:
         path: "cluster-utilities/{{path.basename}}/patches/mizuki"
       destination:
         namespace: mizuki-cluster-utilities # not managed by ArgoCD
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps-namespace-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+      directories:
+      - path: "apps/namespaces/admin-pods"
+  template:
+    spec:
+      project: mizuki-namespace-project
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+      path: "apps/namespaces/{{path.basename}}/patches/mizuki"
+      destination:
+        namespace: mizuki-cluster-utilities # not managed by ArgoCD
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps-workload-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+      directories:
+      - path: "apps/workloads/admin-pods"
+  template:
+    spec:
+      project: mizuki-app-project
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+      path: "apps/workloads/{{path.basename}}/patches/mizuki"
+      destination:
+        namespace: mizuki-cluster-utilities # not managed by ArgoCD

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netshoot
+  labels:
+    app: netshoot
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netshoot
+  template:
+    metadata:
+      labels:
+        app: netshoot
+    spec:
+      containers:
+      - name: netshoot
+        image: nicolaka/netshoot:latest
+        command: ["/bin/bash"]
+        args: ["-c", "while true; do sleep 30; done;"]
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+          requests:
+            memory: "64Mi"
+            cpu: "50m"

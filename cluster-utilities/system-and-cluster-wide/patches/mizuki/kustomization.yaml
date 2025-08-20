@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - apiserver-ingress.yaml
   - cluster-admin-bindings.yaml
+  - cluster-view-bindings.yaml

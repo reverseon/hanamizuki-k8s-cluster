@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mizuki-developer-view-binding
+  labels:
+    app.kubernetes.io/name: mizuki-developer-view-binding
+    app.kubernetes.io/part-of: mizuki-rbac
+subjects:
+- kind: Group
+  name: mizuki-developer
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
