@@ -45,7 +45,7 @@ spec:
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
-      path: "apps/namespaces/{{path.basename}}/patches/mizuki"
+        path: "apps/namespaces/{{path.basename}}/patches/mizuki"
       destination:
         namespace: mizuki-cluster-utilities # not managed by ArgoCD
 ---
@@ -67,6 +67,6 @@ spec:
       source:
         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
         targetRevision: main
-      path: "apps/workloads/{{path.basename}}/patches/mizuki"
+        path: "apps/workloads/{{path.basename}}/patches/mizuki"
       destination:
         namespace: mizuki-cluster-utilities # not managed by ArgoCD
