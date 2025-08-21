@@ -11,5 +11,5 @@ data:
   CLIENT_ID: "dex-k8s-client"
   OIDC_ISSUER: "https://dex.mizuki.otaprv.ishiori.net/dex"
   CLIENT_CLUSTER_NAME: "mizuki"
-  CALLBACK_URL: "http://login.mizuki.otaprv.ishiori.net/apis/auth/callback"
+  CALLBACK_URL: "https://login.mizuki.otaprv.ishiori.net/apis/auth/callback"
   APISERVER_URL: "https://apiserver.mizuki.otaprv.ishiori.net"
