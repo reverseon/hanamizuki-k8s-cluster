@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/part-of: mizuki-rbac
 subjects:
 - kind: Group
-  name: mizuki-developer
+  name: ishiori-net:mizuki-developer
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
