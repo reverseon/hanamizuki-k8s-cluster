@@ -10,6 +10,8 @@ config:
   - id: dex-k8s-client
     redirectURIs:
     - 'http://localhost:5555/apis/auth/callback' # Local Development
+    - 'https://login.mizuki.otaprv.ishiori.net/apis/auth/callback' # Mizuki
+    - 'https://login.hana.ishiori.net/apis/auth/callback' # Hana
     name: 'Dex Kubernetes Client'
     secretEnv: DEX_APP_CLIENT_SECRET
   connectors:

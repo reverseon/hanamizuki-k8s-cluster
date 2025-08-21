@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-dex-authenticator
+spec:
+  template:
+    spec:
+      containers:
+      - name: k8s-dex-authenticator
+        envFrom:
+        - configMapRef:
+            name: k8s-dex-authenticator-config
+        env:
+        - name: CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: k8s-dex-authenticator-secret
+              key: CLIENT_SECRET

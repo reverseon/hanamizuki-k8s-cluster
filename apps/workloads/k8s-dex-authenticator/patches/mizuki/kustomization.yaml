@@ -3,3 +3,8 @@ kind: Kustomization
 
 resources:
 - ../../base
+- configmap.yaml
+- k8s-dex-authenticator-secret.yaml
+
+patchesStrategicMerge:
+- deployment-patch.yaml

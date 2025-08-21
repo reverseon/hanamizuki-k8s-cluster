@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-dex-authenticator-config
+  labels:
+    app: k8s-dex-authenticator
+    app.kubernetes.io/managed-by: kustomize
+data:
+  PORT: "5555"
+  GO_ENV: "development"
+  CLIENT_ID: "dex-k8s-client"
+  OIDC_ISSUER: "https://dex.mizuki.otaprv.ishiori.net/dex"
+  CLIENT_CLUSTER_NAME: "mizuki"
+  CALLBACK_URL: "http://login.mizuki.otaprv.ishiori.net/apis/auth/callback"
+  APISERVER_URL: "https://apiserver.mizuki.otaprv.ishiori.net"
