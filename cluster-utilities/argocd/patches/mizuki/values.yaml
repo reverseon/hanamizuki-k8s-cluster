@@ -42,17 +42,17 @@ configs:
     server.insecure: "true"
   rbac:
     create: true
-    policy.default: role:readonly
+    policy.default: ""
     policy.csv: |
       g, ishiori-net:netwide-admin, role:administrator
       g, ishiori-net:mizuki-maintainer, role:administrator
-      g, ishiori-net:mizuki-developer, role:developer
+      g, ishiori-net:mizuki-developer, role:readonly
       p, role:administrator, *, *, *, allow
-      p, role:developer, applications, get, *, allow
-      p, role:developer, applications, sync, *, allow
-      p, role:developer, applications, action/*, *, allow
-      p, role:developer, exec, create, *, allow
-      p, role:developer, clusters, get, *, allow
+      p, role:readonly, applications, get, *, allow
+      p, role:readonly, clusters, get, *, allow
+      p, role:readonly, repositories, get, *, allow
+      p, role:readonly, certificates, get, *, allow
+      p, role:readonly, gpgkeys, get, *, allow
   cm:
     admin.enabled: false
     exec.enabled: true
