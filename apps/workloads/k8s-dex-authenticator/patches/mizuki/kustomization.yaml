@@ -7,6 +7,8 @@ resources:
 - ../../base
 - configmap.yaml
 - k8s-dex-authenticator-secret.yaml
+- service.yaml
+- ingress.yaml
 
 patchesStrategicMerge:
 - deployment-patch.yaml

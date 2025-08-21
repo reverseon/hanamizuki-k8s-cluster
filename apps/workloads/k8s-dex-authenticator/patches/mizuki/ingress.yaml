@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-dex-authenticator-ingress
+  namespace: k8s-dex-authenticator
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - login.mizuki.otaprv.ishiori.net
+      secretName: wild-mizuki-otaprv-ishiori-net-tls-secret
+  rules:
+    - host: login.mizuki.otaprv.ishiori.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: k8s-dex-authenticator
+                port:
+                  number: 5555
