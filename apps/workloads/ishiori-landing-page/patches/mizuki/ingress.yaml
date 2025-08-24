@@ -16,3 +16,13 @@ spec:
                 name: ishiori-landing-page
                 port:
                   number: 2434
+    - host: hello.ishiori.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ishiori-landing-page
+                port:
+                  number: 2434
