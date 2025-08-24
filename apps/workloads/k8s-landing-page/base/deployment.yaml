@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: k8s-landing-page
-        image: public.ecr.aws/p1f1p2p3/ishiori-k8s-public-ecr:k8s-landing-page_2153dea 
+        image: public.ecr.aws/p1f1p2p3/ishiori-k8s-public-ecr:k8s-landing-page_7f92eae 
         ports:
         - containerPort: 2434
         resources:
