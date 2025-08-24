@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-landing-page
+spec:
+  template:
+    spec:
+      containers:
+      - name: k8s-landing-page
+        envFrom:
+        - configMapRef:
+            name: k8s-landing-page-config

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-landing-page-config
+  labels:
+    app: k8s-landing-page
+    app.kubernetes.io/managed-by: kustomize
+data:
+  PORT: "2434"
+  GO_ENV: "production"
+  CLUSTER_NAME: "mizuki"

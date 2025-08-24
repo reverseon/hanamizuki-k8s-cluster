@@ -42,6 +42,7 @@ spec:
       directories:
       - path: "apps/namespaces/admin-pods"
       - path: "apps/namespaces/k8s-dex-authenticator"
+      - path: "apps/namespaces/k8s-landing-page"
   template:
     metadata:
       name: "namespace-{{path.basename}}"
@@ -67,6 +68,7 @@ spec:
       directories:
       - path: "apps/workloads/admin-pods"
       - path: "apps/workloads/k8s-dex-authenticator"
+      - path: "apps/workloads/k8s-landing-page"
   template:
     metadata:
       name: "workload-{{path.basename}}"
