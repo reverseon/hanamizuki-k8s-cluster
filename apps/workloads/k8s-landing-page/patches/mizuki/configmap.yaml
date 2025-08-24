@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-dex-authenticator-config
+  labels:
+    app: k8s-dex-authenticator
+    app.kubernetes.io/managed-by: kustomize
+data:
+  PORT: "2434"
+  GO_ENV: "production"
+  CLUSTER_NAME: "mizuki"
