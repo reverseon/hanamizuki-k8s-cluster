@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ishiori-landing-page
+spec:
+  template:
+    spec:
+      containers:
+      - name: ishiori-landing-page
+        envFrom:
+        - configMapRef:
+            name: ishiori-landing-page-config

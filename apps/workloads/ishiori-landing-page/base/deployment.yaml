@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ishiori-landing-page
+  labels:
+    app: ishiori-landing-page
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ishiori-landing-page
+  template:
+    metadata:
+      labels:
+        app: ishiori-landing-page
+    spec:
+      containers:
+      - name: ishiori-landing-page
+        image: public.ecr.aws/p1f1p2p3/ishiori-k8s-public-ecr:ishiori-landing-page_7f92eae 
+        ports:
+        - containerPort: 2434
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
