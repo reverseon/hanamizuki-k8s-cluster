@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ishiori-landing-page
+spec:
+  selector:
+    app: ishiori-landing-page
+  ports:
+    - name: http
+      port: 2434
+      targetPort: 2434
+      protocol: TCP
+  type: ClusterIP

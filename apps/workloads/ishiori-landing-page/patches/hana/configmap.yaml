@@ -7,4 +7,4 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
 data:
   PORT: "2434"
-  GO_ENV: "development"
+  GO_ENV: "production"

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: k8s-dex-authenticator
-        image: 319844025384.dkr.ecr.ap-northeast-1.amazonaws.com/ishiori-k8s-private-ecr:k8s-dex-client_7ddad66
+        image: 319844025384.dkr.ecr.ap-northeast-1.amazonaws.com/ishiori-k8s-private-ecr:k8s-dex-client_464c725 
         ports:
         - containerPort: 5555
         resources:

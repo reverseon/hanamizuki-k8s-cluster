@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-dex-authenticator-config
+  labels:
+    app: k8s-dex-authenticator
+    app.kubernetes.io/managed-by: kustomize
+data:
+  PORT: "5555"
+  GO_ENV: "production"
+  CLIENT_ID: "dex-k8s-client"
+  OIDC_ISSUER: "https://dex.hana.ishiori.net/dex"
+  CLIENT_CLUSTER_NAME: "hana"
+  CALLBACK_URL: "https://login.hana.ishiori.net/apis/auth/callback"
+  APISERVER_URL: "https://apiserver.hana.ishiori.net"

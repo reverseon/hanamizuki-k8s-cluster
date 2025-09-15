@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: k8s-dex-authenticator
+
+resources:
+- ../../base
+- configmap.yaml
+- k8s-dex-authenticator-secret.yaml
+- service.yaml
+- ingress.yaml
+
+patchesStrategicMerge:
+- deployment-patch.yaml
