@@ -55,7 +55,7 @@ configs:
       p, role:readonly, gpgkeys, get, *, allow
   cm:
     admin.enabled: false
-    exec.enabled: true
+    exec.enabled: false
     dex.config: |
       connectors:
         - type: github
