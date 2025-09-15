@@ -1,0 +1,12 @@
+repositories:
+- name: dex
+  url: https://charts.dexidp.io
+
+releases:
+- name: dex
+  namespace: dex
+  chart: dex/dex
+  version: 0.23.0
+  values:
+  - ../../base/values.yaml
+  - values.yaml 

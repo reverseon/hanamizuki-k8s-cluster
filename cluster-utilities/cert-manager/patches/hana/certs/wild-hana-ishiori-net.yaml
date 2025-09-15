@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wild-hana-ishiori-net-cert
+  namespace: cert-manager
+spec:
+  secretName: wild-hana-ishiori-net-tls-secret
+  issuerRef:
+    name: letsencrypt-dns01-issuer
+    kind: ClusterIssuer
+  commonName: "*.hana.ishiori.net"
+  dnsNames:
+  - "*.hana.ishiori.net"
+  - "hana.ishiori.net"
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"

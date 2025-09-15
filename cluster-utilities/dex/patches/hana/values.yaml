@@ -1,5 +1,5 @@
 config:
-  issuer: https://dex.mizuki.otaprv.ishiori.net/dex
+  issuer: https://dex.hana.ishiori.net/dex
   storage:
     type: kubernetes
     config:
@@ -10,7 +10,7 @@ config:
   - id: dex-k8s-client
     redirectURIs:
     - 'http://localhost:5555/apis/auth/callback' # Local Development
-    - 'https://login.mizuki.otaprv.ishiori.net/apis/auth/callback' # Mizuki
+    - 'https://login.hana.ishiori.net/apis/auth/callback' # Hana
     name: 'Dex Kubernetes Client'
     secretEnv: DEX_APP_CLIENT_SECRET
   connectors:
@@ -18,15 +18,15 @@ config:
     id: github
     name: GitHub
     config:
-      clientID: Ov23liilC9bcKy7smcTA
+      clientID: Ov23liOmRkvwnR0DICXc
       clientSecret: $GITHUB_CLIENT_SECRET
-      redirectURI: https://dex.mizuki.otaprv.ishiori.net/dex/callback
+      redirectURI: https://dex.hana.ishiori.net/dex/callback
       orgs:
       - name: ishiori-net
         teams:
         - netwide-admin
-        - mizuki-maintainer
-        - mizuki-developer
+        - hana-maintainer
+        - hana-developer
       teamNameField: slug
       useLoginAsID: true
 

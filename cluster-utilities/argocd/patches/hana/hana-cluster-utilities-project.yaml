@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: hana-cluster-utilities-project
+  namespace: argocd
+spec:
+  sourceRepos:
+  - 'https://github.com/reverseon/hanamizuki-k8s-cluster'
+  sourceNamespaces:
+  - 'argocd'
+  destinations:
+  - namespace: '*'
+    server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'

@@ -1,0 +1,8 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: hana-metallb-ipaddr-pool
+  namespace: metallb
+spec:
+  addresses:
+    - 10.232.0.1-10.232.3.240

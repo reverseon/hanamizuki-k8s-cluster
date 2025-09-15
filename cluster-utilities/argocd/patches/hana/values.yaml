@@ -1,0 +1,74 @@
+global:
+  domain: argocd.hana.ishiori.net
+
+controller:
+  replicas: 1
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    extraTls:
+      - hosts:
+        - argocd.hana.ishiori.net
+        secretName: wild-hana-ishiori-net-tls-secret
+  ingressGrpc:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-dns01-issuer
+      nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+    extraTls:
+      - hosts:
+        - grpc.argocd.hana.ishiori.net
+        secretName: grpc-argocd-hana-ishiori-net-tls-secret
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+
+repoServer:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+
+applicationSet:
+  replicas: 2
+
+configs:
+  params:
+    server.insecure: "true"
+  rbac:
+    create: true
+    policy.default: ""
+    policy.csv: |
+      g, ishiori-net:netwide-admin, role:administrator
+      g, ishiori-net:hana-maintainer, role:administrator
+      g, ishiori-net:hana-developer, role:readonly
+      p, role:administrator, *, *, *, allow
+      p, role:readonly, applications, get, *, allow
+      p, role:readonly, clusters, get, *, allow
+      p, role:readonly, repositories, get, *, allow
+      p, role:readonly, certificates, get, *, allow
+      p, role:readonly, gpgkeys, get, *, allow
+  cm:
+    admin.enabled: false
+    exec.enabled: true
+    dex.config: |
+      connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: Ov23liMS4IPehpQ2bnj0
+            clientSecret: $github-client-secret:clientSecret
+            orgs:
+            - name: ishiori-net
+              teams:
+              - netwide-admin
+              - hana-maintainer
+              - hana-developer
+            teamNameField: slug
+            useLoginAsID: true
