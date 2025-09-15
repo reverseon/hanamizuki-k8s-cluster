@@ -28,57 +28,57 @@ spec:
         path: "cluster-utilities/{{path.basename}}/patches/hana"
       destination:
         namespace: hana-cluster-utilities # not managed by ArgoCD
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: cluster-apps-namespace-generator
-#   namespace: argocd
-# spec:
-#   generators:
-#   - git:
-#       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
-#       revision: main
-#       directories:
-#       - path: "apps/namespaces/admin-pods"
-#       - path: "apps/namespaces/k8s-dex-authenticator"
-#       - path: "apps/namespaces/k8s-landing-page"
-#       - path: "apps/namespaces/ishiori-landing-page"
-#   template:
-#     metadata:
-#       name: "namespace-{{path.basename}}"
-#     spec:
-#       project: hana-namespace-project
-#       source:
-#         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
-#         targetRevision: main
-#         path: "apps/namespaces/{{path.basename}}/patches/hana"
-#       destination:
-#         namespace: hana-cluster-utilities # not managed by ArgoCD
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: cluster-apps-workload-generator
-#   namespace: argocd
-# spec:
-#   generators:
-#   - git:
-#       repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
-#       revision: main
-#       directories:
-#       - path: "apps/workloads/admin-pods"
-#       - path: "apps/workloads/k8s-dex-authenticator"
-#       - path: "apps/workloads/k8s-landing-page"
-#       - path: "apps/workloads/ishiori-landing-page"
-#   template:
-#     metadata:
-#       name: "workload-{{path.basename}}"
-#     spec:
-#       project: hana-app-project
-#       source:
-#         repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
-#         targetRevision: main
-#         path: "apps/workloads/{{path.basename}}/patches/hana"
-#       destination:
-#         namespace: hana-cluster-utilities # not managed by ArgoCD
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps-namespace-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+      directories:
+      - path: "apps/namespaces/admin-pods"
+      - path: "apps/namespaces/k8s-dex-authenticator"
+      - path: "apps/namespaces/k8s-landing-page"
+      - path: "apps/namespaces/ishiori-landing-page"
+  template:
+    metadata:
+      name: "namespace-{{path.basename}}"
+    spec:
+      project: hana-namespace-project
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+        path: "apps/namespaces/{{path.basename}}/patches/hana"
+      destination:
+        namespace: hana-cluster-utilities # not managed by ArgoCD
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps-workload-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+      revision: main
+      directories:
+      - path: "apps/workloads/admin-pods"
+      - path: "apps/workloads/k8s-dex-authenticator"
+      - path: "apps/workloads/k8s-landing-page"
+      - path: "apps/workloads/ishiori-landing-page"
+  template:
+    metadata:
+      name: "workload-{{path.basename}}"
+    spec:
+      project: hana-app-project
+      source:
+        repoURL: https://github.com/reverseon/hanamizuki-k8s-cluster.git
+        targetRevision: main
+        path: "apps/workloads/{{path.basename}}/patches/hana"
+      destination:
+        namespace: hana-cluster-utilities # not managed by ArgoCD
